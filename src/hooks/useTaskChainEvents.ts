@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { invalidateChainState } from '@/hooks/useChainState';
-import { busPublish } from './useEvents';
+import { busPublish, sanitizeEvent } from './useEvents';
 
 export type TaskEventType = 'task_verified' | 'task_completed';
 
@@ -74,13 +74,13 @@ export function useTaskChainEvents(
     setLastEvent(event);
     setPollCount((c) => c + 1);
 
-    busPublish({
+    busPublish(sanitizeEvent({
       type: event.type,
       actor: 'system',
       resource: event.taskTitle,
       resourceId: event.taskId,
       metadata: { taskId: event.taskId },
-    });
+    }));
 
     invalidateChainState(['tasks', `task:${event.taskId}`], 'polling');
   }, []);
