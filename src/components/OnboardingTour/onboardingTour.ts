@@ -1,15 +1,18 @@
 export const TOUR_SEEN_KEY = 'vero_onboarding_seen';
 
+export type TourStepPlacement = 'top' | 'bottom' | 'left' | 'right';
+
 export interface TourStep {
   id: string;
-  attachTo?: { element: string; on: string };
+  attachTo?: { element: string; on: TourStepPlacement };
   title: string;
   text: string;
 }
 
 /**
- * shepherd.js ships no TypeScript declarations, so these describe only the
- * subset of its API this module actually touches.
+ * Minimal local shape covering only the subset of shepherd.js's Tour API
+ * this module actually calls, so this file doesn't need to know which
+ * shepherd.js version's exact types are installed.
  */
 export interface ShepherdTourLike {
   getCurrentStep(): { id: string } | undefined;
