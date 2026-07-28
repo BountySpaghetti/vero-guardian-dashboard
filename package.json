@@ -27,7 +27,7 @@
     "gridstack": "^12.6.0",
     "i18next": "^25.2.1",
     "jspdf": "^4.2.1",
-    "lucide-react": "^0.395.0",
+    "lucide-react": "^1.27.0",
     "next": "14.2.4",
     "papaparse": "^5.5.4",
     "react": "^18.3.1",
