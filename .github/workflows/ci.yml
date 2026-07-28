@@ -6,9 +6,12 @@ on:
   pull_request:
     branches: [ '**' ]
 
+permissions:
+  contents: read
+
 jobs:
-  test:
-    name: Run tests
+  build:
+    name: Typecheck, lint, test, build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,5 +26,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npm run lint
+
       - name: Run tests
-        run: npm test --if-present
+        run: npm test -- --ci
+
+      - name: Build
+        run: npm run build

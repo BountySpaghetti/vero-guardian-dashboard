@@ -11,6 +11,7 @@ import { I18nProvider } from '@/i18n';
 import { NetworkProvider } from '@/context/NetworkContext';
 import { SocketIOProvider } from '@/context/SocketIOContext';
 import DevWalletSwitcher from '@/components/DevWalletSwitcher';
+import { ErrorProvider } from '@/components/ErrorModal';
 
 const inter = Inter({ subsets: ['latin'] });
 

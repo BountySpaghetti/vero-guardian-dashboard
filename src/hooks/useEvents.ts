@@ -94,7 +94,7 @@ function makeId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
-function sanitizeEvent(input: ProtocolEventInput): ProtocolEvent {
+export function sanitizeEvent(input: ProtocolEventInput): ProtocolEvent {
   return {
     id: makeId(),
     type: sanitizeString(input.type) ?? 'unknown',
