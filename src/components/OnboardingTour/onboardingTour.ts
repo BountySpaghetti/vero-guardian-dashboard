@@ -1,5 +1,3 @@
-import type Shepherd from 'shepherd.js';
-
 export const TOUR_SEEN_KEY = 'vero_onboarding_seen';
 
 export interface TourStep {
@@ -7,6 +5,23 @@ export interface TourStep {
   attachTo?: { element: string; on: string };
   title: string;
   text: string;
+}
+
+/**
+ * shepherd.js ships no TypeScript declarations, so these describe only the
+ * subset of its API this module actually touches.
+ */
+export interface ShepherdTourLike {
+  getCurrentStep(): { id: string } | undefined;
+  back(): void;
+  next(): void;
+  complete(): void;
+}
+
+export interface ShepherdButton {
+  text: string;
+  action: () => void;
+  secondary?: boolean;
 }
 
 export function buildTourSteps(t: (key: string) => string): TourStep[] {
@@ -60,11 +75,11 @@ export function markTourSeen(): void {
 }
 
 export function buildShepherdButtons(
-  tour: Shepherd.Tour,
+  tour: ShepherdTourLike,
   isLast: boolean,
   t: (key: string) => string,
-): Shepherd.Step.StepOptionsButton[] {
-  const buttons: Shepherd.Step.StepOptionsButton[] = [];
+): ShepherdButton[] {
+  const buttons: ShepherdButton[] = [];
   if (tour.getCurrentStep()?.id !== 'welcome') {
     buttons.push({ text: t('tour.back'), action: () => tour.back(), secondary: true });
   }
