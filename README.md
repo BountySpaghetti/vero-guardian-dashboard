@@ -327,8 +327,20 @@ NEXT_PUBLIC_HORIZON_URL=https://horizon-testnet.stellar.org
 # Optional Horizon account that stores admin/guardian role map entries
 NEXT_PUBLIC_ROLE_REGISTRY_ACCOUNT=G...
 
+# Optional Guardian profile service base URL
+NEXT_PUBLIC_PROFILE_SERVICE_URL=
+
+# Relayer account that stores task consensus data entries
+NEXT_PUBLIC_RELAYER_PUBLIC_KEY=G...
+
+# Browser push public key used by notification subscriptions
+NEXT_PUBLIC_VAPID_PUBLIC_KEY=
+
 # Relayer: target network
 STELLAR_NETWORK=testnet
+
+# GitHub API token used by server-side PR metadata lookups
+GITHUB_TOKEN=
 
 # Relayer vault metadata. Store only encrypted vault records in env/config.
 RELAYER_VAULT_KEY_PROVIDER=hardware
@@ -344,7 +356,11 @@ GITHUB_WEBHOOK_SECRET=
 | `NEXT_PUBLIC_SOROBAN_RPC_URL` | Soroban RPC endpoint | `https://soroban-testnet.stellar.org` |
 | `NEXT_PUBLIC_HORIZON_URL` | Stellar Horizon REST API | `https://horizon-testnet.stellar.org` |
 | `NEXT_PUBLIC_ROLE_REGISTRY_ACCOUNT` | Optional Horizon account containing admin/guardian role map entries | connected wallet account |
+| `NEXT_PUBLIC_PROFILE_SERVICE_URL` | Optional base URL for Guardian profile lookups | same-origin fallback |
+| `NEXT_PUBLIC_RELAYER_PUBLIC_KEY` | Relayer account that stores consensus threshold and task vote data entries | required for consensus progress |
+| `NEXT_PUBLIC_VAPID_PUBLIC_KEY` | Browser push public key used to subscribe wallets to notifications | push notifications disabled |
 | `STELLAR_NETWORK` | `testnet` or `mainnet` | `testnet` |
+| `GITHUB_TOKEN` | Server-side GitHub token used for PR metadata lookups | required for GitHub metadata API calls |
 | `RELAYER_VAULT_KEY_PROVIDER` | Hardware-backed vault key provider identifier | `hardware` |
 | `RELAYER_VAULT_HARDWARE_BACKED` | Must be `true` when relayer vault keys are backed by OS/HSM storage | — |
 | `RELAYER_VAULT_STELLAR_SECRET_KEY` | Encrypted vault record for the relayer signing key | — |
