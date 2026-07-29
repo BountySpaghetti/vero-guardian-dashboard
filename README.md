@@ -856,7 +856,7 @@ Set all NEXT_PUBLIC_* vars in Vercel (or your hosting provider)
 
 Enable HTTPS — Freighter requires a secure context (https://)
 
-Add CSP headers allowing Stellar Horizon and Soroban RPC origins
+[x] Add CSP headers allowing Stellar Horizon and Soroban RPC origins — configured in next.config.mjs (headers()), connect-src derived from NEXT_PUBLIC_HORIZON_URL / NEXT_PUBLIC_SOROBAN_RPC_URL
 
 Configure GitHub webhook secret and validate X-Hub-Signature-256 in the relayer
 
