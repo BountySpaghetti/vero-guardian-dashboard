@@ -287,8 +287,20 @@ NEXT_PUBLIC_HORIZON_URL=https://horizon-testnet.stellar.org
 # Optional Horizon account that stores admin/guardian role map entries
 NEXT_PUBLIC_ROLE_REGISTRY_ACCOUNT=G...
 
+# Optional Guardian profile service base URL
+NEXT_PUBLIC_PROFILE_SERVICE_URL=
+
+# Relayer account that stores task consensus data entries
+NEXT_PUBLIC_RELAYER_PUBLIC_KEY=G...
+
+# Browser push public key used by notification subscriptions
+NEXT_PUBLIC_VAPID_PUBLIC_KEY=
+
 # Relayer: target network
 STELLAR_NETWORK=testnet
+
+# GitHub API token used by server-side PR metadata lookups
+GITHUB_TOKEN=
 
 # Relayer vault metadata. Store only encrypted vault records in env/config.
 RELAYER_VAULT_KEY_PROVIDER=hardware
